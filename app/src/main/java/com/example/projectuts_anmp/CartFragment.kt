@@ -1,59 +1,68 @@
 package com.example.projectuts_anmp
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.projectuts_anmp.databinding.FragmentCartBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CartFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CartFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var cartViewModel: CartViewModel
+    private lateinit var binding: FragmentCartBinding
+    private lateinit var cartAdapter: CartAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            // Handle any arguments here if needed
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cart, container, false)
+    ): View {
+        binding = FragmentCartBinding.inflate(inflater, container, false)
+        val view = binding.root
+
+        // Inisialisasi ViewModel
+        cartViewModel = ViewModelProvider(this).get(CartViewModel::class.java)
+
+        // Inisialisasi RecyclerView
+        val cartRecyclerView = binding.cartRecyclerView
+
+        cartAdapter = CartAdapter(cartViewModel.cartItems.value.orEmpty())
+        cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        cartRecyclerView.adapter = cartAdapter
+
+        // Amati LiveData dari ViewModel
+        cartViewModel.cartItems.observe(viewLifecycleOwner) { items ->
+            // Perubahan pada LiveData akan secara otomatis memperbarui RecyclerView
+        }
+
+        cartAdapter.setOnItemClickListener { position ->
+            showDeleteConfirmationDialog(position)
+        }
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CartFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CartFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun showDeleteConfirmationDialog(position: Int) {
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Hapus Item")
+        builder.setMessage("Apakah Anda yakin ingin menghapus item dari keranjang?")
+        builder.setPositiveButton("Ya") { _, _ ->
+            // Hapus item dari keranjang jika pengguna menekan "Ya"
+            cartViewModel.removeItem(position)
+        }
+        builder.setNegativeButton("Tidak") { dialog, _ ->
+            // Batalkan penghapusan jika pengguna menekan "Tidak"
+            dialog.dismiss()
+        }
+        builder.create().show()
     }
 }

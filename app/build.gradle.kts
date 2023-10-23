@@ -56,10 +56,14 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation ("androidx.recyclerview:recyclerview:1.2.1")
+    implementation ("com.squareup.picasso:picasso:2.8")
 
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("io.reactivex.rxjava3:rxjava:3.1.3")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.0")
     implementation("io.reactivex.rxjava3:rxkotlin:3.0.1")
     implementation("com.squareup.picasso:picasso:2.71828")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel:2.4.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata:2.4.0")
+
 }

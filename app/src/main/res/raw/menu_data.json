@@ -1,27 +1,126 @@
 {
   "appetizers": [
     {
-      "name": "Appetizer 1",
+      "name": "Crispy Spring Rolls",
       "price": 5.99,
-      "imageUrl": "image_url_1"
+      "imageUrl": "https://www.wandercooks.com/wp-content/uploads/2020/09/crispy-thai-spring-rolls-recipe-ft-1080x1080.jpg",
+      "description": "Delicious crispy spring rolls filled with a mix of vegetables and served with a sweet dipping sauce."
     },
     {
-      "name": "Appetizer 2",
+      "name": "Sushi",
       "price": 6.99,
-      "imageUrl": "image_url_2"
+      "imageUrl": "https://th.bing.com/th/id/OIP.VzTMToMYzFc8v-9CCfqJQwHaE9?pid=ImgDet&rs=1",
+      "description": "Fresh and delectable sushi rolls featuring a variety of fish, rice, and seaweed, accompanied by soy sauce and wasabi."
+    },
+    {
+      "name": "Chicken Satay",
+      "price": 8.99,
+      "imageUrl": "https://th.bing.com/th/id/OIP.5Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3gHaE8?pid=ImgDet&rs=1",
+      "description": "Tender grilled chicken skewers marinated in a flavorful peanut sauce, served with a side of cucumber salad."
+    },
+    {
+      "name": "Mozzarella Sticks",
+      "price": 7.99,
+      "imageUrl": "https://i.imgur.com/mozzarella-sticks.jpg",
+      "description": "Golden, crunchy mozzarella sticks with a gooey cheese center, served with marinara sauce."
+    },
+    {
+      "name": "Bruschetta",
+      "price": 6.49,
+      "imageUrl": "https://i.imgur.com/bruschetta.jpg",
+      "description": "Classic bruschetta featuring toasted bread topped with diced tomatoes, fresh basil, garlic, and olive oil."
+    },
+    {
+      "name": "Onion Rings",
+      "price": 5.79,
+      "imageUrl": "https://i.imgur.com/onion-rings.jpg",
+      "description": "Crispy onion rings with a seasoned batter, perfect for dipping in your favorite sauce."
+    },
+    {
+      "name": "Garlic Bread",
+      "price": 4.99,
+      "imageUrl": "https://i.imgur.com/garlic-bread.jpg",
+      "description": "Warm and buttery garlic bread slices, perfect for sharing as an appetizer or side dish."
+    },
+    {
+      "name": "Mini Tacos",
+      "price": 8.49,
+      "imageUrl": "https://i.imgur.com/mini-tacos.jpg",
+      "description": "Delightful mini tacos with your choice of fillings, served with salsa and guacamole."
+    },
+    {
+      "name": "Potato Skins",
+      "price": 7.29,
+      "imageUrl": "https://i.imgur.com/potato-skins.jpg",
+      "description": "Crispy potato skins loaded with cheese, bacon, and sour cream, a perfect party snack."
+    },
+    {
+      "name": "Shrimp Cocktail",
+      "price": 9.99,
+      "imageUrl": "https://i.imgur.com/shrimp-cocktail.jpg",
+      "description": "Chilled shrimp served with a tangy cocktail sauce and lemon wedges, a refreshing starter."
     }
   ],
   "riceAndNoodles": [
     {
-      "name": "Rice and Noodles 1",
+      "name": "Fried Rice",
       "price": 7.99,
-      "imageUrl": "image_url_3"
+      "imageUrl": "https://i.imgur.com/fried-rice.jpg",
+      "description": "Flavorful fried rice with a mix of vegetables, eggs, and your choice of protein, seasoned to perfection."
     },
     {
-      "name": "Rice and Noodles 2",
+      "name": "Noodles",
       "price": 8.99,
-      "imageUrl": "image_url_4"
+      "imageUrl": "https://i.imgur.com/noodles.jpg",
+      "description": "Savory noodles stir-fried with an assortment of vegetables and your choice of meat or tofu."
+    },
+    {
+      "name": "Pad Thai",
+      "price": 9.99,
+      "imageUrl": "https://i.imgur.com/pad-thai.jpg",
+      "description": "A popular Thai dish featuring stir-fried rice noodles with shrimp, tofu, bean sprouts, and peanuts in a tamarind sauce."
+    },
+    {
+      "name": "Beef Chow Mein",
+      "price": 10.99,
+      "imageUrl": "https://i.imgur.com/beef-chow-mein.jpg",
+      "description": "Tender beef and vegetables stir-fried with noodles in a flavorful sauce, a Chinese takeout favorite."
+    },
+    {
+      "name": "Ramen",
+      "price": 9.49,
+      "imageUrl": "https://i.imgur.com/ramen.jpg",
+      "description": "Japanese ramen with a rich broth, noodles, and various toppings like sliced pork, green onions, and seaweed."
+    },
+    {
+      "name": "Chicken Alfredo",
+      "price": 11.49,
+      "imageUrl": "https://i.imgur.com/chicken-alfredo.jpg",
+      "description": "Creamy fettuccine Alfredo with tender pieces of grilled chicken and grated Parmesan cheese."
+    },
+    {
+      "name": "Spaghetti Carbonara",
+      "price": 10.99,
+      "imageUrl": "https://i.imgur.com/spaghetti-carbonara.jpg",
+      "description": "Italian spaghetti with a creamy egg and cheese sauce, pancetta, and black pepper."
+    },
+    {
+      "name": "Seafood Linguine",
+      "price": 12.99,
+      "imageUrl": "https://i.imgur.com/seafood-linguine.jpg",
+      "description": "Linguine pasta with a medley of seafood, garlic, white wine, and a touch of red pepper flakes."
+    },
+    {
+      "name": "Veggie Stir Fry",
+      "price": 8.79,
+      "imageUrl": "https://i.imgur.com/veggie-stir-fry.jpg",
+      "description": "Colorful stir-fried vegetables in a flavorful sauce, a healthy and delicious choice."
+    },
+    {
+      "name": "Mushroom Risotto",
+      "price": 10.49,
+      "imageUrl": "https://i.imgur.com/mushroom-risotto.jpg",
+      "description": "Creamy Italian risotto infused with the earthy flavors of mushrooms and Parmesan cheese."
     }
   ]
-
 }

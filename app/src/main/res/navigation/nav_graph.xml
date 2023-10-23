@@ -38,10 +38,25 @@
         android:id="@+id/menuFragment"
         android:name="com.example.projectuts_anmp.MenuFragment"
         android:label="fragment_menu"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_menu" >
+    <action
+        android:id="@+id/action_menuFragment_to_menuDetailFragment"
+        app:destination="@id/menuDetailFragment" />
+
+
+    </fragment>
     <fragment
         android:id="@+id/ordersFragment"
         android:name="com.example.projectuts_anmp.OrdersFragment"
         android:label="fragment_orders"
         tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/menuDetailFragment"
+        android:name="com.example.projectuts_anmp.MenuDetailFragment"
+        android:label="fragment_menu_detail"
+        tools:layout="@layout/fragment_menu_detail" >
+    <argument
+        android:name="menuItem"
+        app:argType="com.example.projectuts_anmp.MenuItem" />
+    </fragment>
 </navigation>
