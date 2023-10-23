@@ -1,0 +1,27 @@
+{
+  "appetizers": [
+    {
+      "name": "Appetizer 1",
+      "price": 5.99,
+      "imageUrl": "image_url_1"
+    },
+    {
+      "name": "Appetizer 2",
+      "price": 6.99,
+      "imageUrl": "image_url_2"
+    }
+  ],
+  "riceAndNoodles": [
+    {
+      "name": "Rice and Noodles 1",
+      "price": 7.99,
+      "imageUrl": "image_url_3"
+    },
+    {
+      "name": "Rice and Noodles 2",
+      "price": 8.99,
+      "imageUrl": "image_url_4"
+    }
+  ]
+
+}
