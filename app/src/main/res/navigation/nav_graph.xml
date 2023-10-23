@@ -19,7 +19,11 @@
         android:id="@+id/currentServingFragment"
         android:name="com.example.projectuts_anmp.CurrentServingFragment"
         android:label="fragment_current_serving"
-        tools:layout="@layout/fragment_current_serving" />
+        tools:layout="@layout/fragment_current_serving">
+        <argument
+            android:name="tableNumber"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.projectuts_anmp.AccountFragment"

@@ -4,11 +4,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MenuFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!-- layout_menu.xml -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".MenuFragment">
+
+        <!-- Table Number -->
+        <TextView
+            android:id="@+id/tableNumberTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Table Number 12"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Search Dishes -->
+        <EditText
+            android:id="@+id/searchDishesEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableNumberTextView"
+            android:hint="Search Dishes" />
+
+        <!-- RecyclerView for "Appetizers" -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/appetizerRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchDishesEditText"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal" />
+
+        <!-- "Apetizers" Title -->
+        <TextView
+            android:id="@+id/appetizerTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Appetizers"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appetizerRecyclerView"
+            android:layout_marginTop="16dp" />
+
+        <!-- RecyclerView for "Rice and Noodles" -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/riceNoodlesRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appetizerTitleTextView"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal" />
+
+        <!-- "Rice and Noodles" Title -->
+        <TextView
+            android:id="@+id/riceNoodlesTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rice and Noodles"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/riceNoodlesRecyclerView"
+            android:layout_marginTop="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

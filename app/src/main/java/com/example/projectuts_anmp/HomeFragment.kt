@@ -19,9 +19,14 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+        val sessionManager = SessionManager(requireContext())
+        val tableNumber = sessionManager.getTableNumber()
 
+        if (tableNumber != 0) {
+            val action = HomeFragmentDirections.actionHomeFragmentToCurrentServingFragment(tableNumber)
+            findNavController().navigate(action)
+        }
         val submitButton = view.findViewById<Button>(R.id.btnSubmitTableNumber)
-
         submitButton.setOnClickListener {
 
             val tableNumberEditText = view.findViewById<EditText>(R.id.tableNumberEditText)
@@ -33,8 +38,11 @@ class HomeFragment : Fragment() {
 
 
                 if (tableNumber > 0) {
+                    val tableNumber = tableNumberText.toInt()
 
-                    val action = HomeFragmentDirections.actionHomeFragmentToCurrentServingFragment()
+                    val sessionManager = SessionManager(requireContext())
+                    sessionManager.saveTableNumber(tableNumber)
+                    val action = HomeFragmentDirections.actionHomeFragmentToCurrentServingFragment(tableNumber)
                     findNavController().navigate(action)
                 } else {
 
