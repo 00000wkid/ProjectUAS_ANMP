@@ -10,16 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CurrentServingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CurrentServingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +22,7 @@ class CurrentServingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_current_serving, container, false)
     }
 
@@ -44,9 +35,9 @@ class CurrentServingFragment : Fragment() {
         val tableNumber = sessionManager.getTableNumber()
 
         if (tableNumber != 0) {
-            // Lakukan sesuatu dengan nomor meja, misalnya menampilkan "Currently Serving Table X"
+
             val servingText = "Currently Serving Table $tableNumber"
-            // Contoh menampilkan pesan pada TextView
+
             val servingTextView = view.findViewById<TextView>(R.id.servingTextView)
             servingTextView.text = servingText
         }
@@ -57,13 +48,9 @@ class CurrentServingFragment : Fragment() {
 
         btnDoneServing.setOnClickListener {
             val sessionManager = SessionManager(requireContext())
-
-            // Hapus nomor meja dari sesi
             sessionManager.clearTableNumber()
-
-            // Kembali ke HomeFragment
             val navController = findNavController()
-            navController.popBackStack() // Ini akan menghapus CurrentServingFragment dari tumpukan kembali
+            navController.popBackStack()
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.projectuts_anmp
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 
-class CartAdapter(private val context: Context, private val items: MutableList<MenuItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
+class CartAdapter(private val context: Context, private var items: List<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemName: TextView = itemView.findViewById(R.id.cartItemNameTextView)
         val itemPrice: TextView = itemView.findViewById(R.id.cartItemPriceTextView)
@@ -17,17 +18,19 @@ class CartAdapter(private val context: Context, private val items: MutableList<M
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
+
         val view = LayoutInflater.from(context).inflate(R.layout.cart_item, parent, false)
         return CartViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-        val item = items[position]
+        val cartItem = items[position]
+        Log.d("CartAdapter", "Jumlah item dalam cartAdapter: ${cartItem.menuItem.name}")
 
         // Setel tampilan item dengan data dari item keranjang
-        holder.itemName.text = item.name
-        holder.itemPrice.text = "Harga: ${item.price}"
-        holder.itemQuantity.text = "Jumlah: ${item.quantity}"
+        holder.itemName.text = cartItem.menuItem.name
+        holder.itemPrice.text = "Harga: ${cartItem.menuItem.price}"
+        holder.itemQuantity.text = "Jumlah: ${cartItem.quantity}"
         holder.itemView.setOnClickListener {
             onItemClickListener?.invoke(position)
         }
@@ -36,15 +39,18 @@ class CartAdapter(private val context: Context, private val items: MutableList<M
         }
     }
 
+
     override fun getItemCount(): Int {
         return items.size
     }
-
+    fun setItems(items: List<CartItem>) {
+        this.items = ArrayList(items)
+    }
     fun removeItem(position: Int) {
-        // Implementasi untuk menghapus item dari list
-        items.removeAt(position)
+//        items.removeAt(position)
         notifyItemRemoved(position)
     }
+
     private var onItemClickListener: ((Int) -> Unit)? = null
     fun setOnItemClickListener(listener: (Int) -> Unit) {
         onItemClickListener = listener

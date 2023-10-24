@@ -21,9 +21,10 @@ class LoginActivity : AppCompatActivity() {
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-                finish()  // Finish LoginActivity so the user cannot navigate back to it
+                finish()
             } else {
-                // Handle unsuccessful login (show an error message, etc.)
+                usernameEditText.error = "Username atau password salah"
+                passwordEditText.error = "Username atau password salah"
             }
         }
     }

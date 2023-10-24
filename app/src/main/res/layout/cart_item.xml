@@ -24,24 +24,16 @@
 
             <ImageView
                 android:id="@+id/cartItemImageView"
-                android:layout_width="157dp"
+                android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="4dp"
 
                 android:layout_marginTop="4dp"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/cartItemPriceTextView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_launcher_foreground" />
-
-            <TextView
-                android:id="@+id/cartItemPriceTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="172dp"
-                android:layout_marginBottom="136dp"
-                android:text="harga"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/cartItemQuantityTextView"
@@ -74,6 +66,17 @@
                 android:textSize="20sp"
                 app:layout_constraintStart_toEndOf="@+id/cartItemImageView"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cartItemPriceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="149dp"
+                android:text="Harga"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cartItemImageView"
+                app:layout_constraintTop_toBottomOf="@+id/cartItemNameTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CartFragment">
     <!-- fragment_cart.xml -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cartRecyclerView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/totalPriceTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginBottom="3dp"
+            android:text="price"
+            app:layout_constraintBottom_toTopOf="@+id/totalItemsTextView"
+            app:layout_constraintStart_toStartOf="@+id/totalItemsTextView" />
+
+        <TextView
+            android:id="@+id/totalItemsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="290dp"
+            android:layout_marginEnd="16dp"
+            android:text="total item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cartRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/checkoutButton" />
+
+        <Button
+            android:id="@+id/checkoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/totalItemsTextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Tombol Selesaikan Pembelian -->
 
 </FrameLayout>

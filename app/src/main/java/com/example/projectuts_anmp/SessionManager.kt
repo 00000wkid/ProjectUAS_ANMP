@@ -26,31 +26,31 @@ class SessionManager(context: Context) {
         editor.remove("tableNumber")
         editor.apply()
     }
-    fun addToCart(menuItem: MenuItem, quantity: Int) {
-        val cartItems = getCart()
-        val existingItem = cartItems.find { it.id == menuItem.id }
-
-        if (existingItem != null) {
-            existingItem.quantity += quantity
-        } else {
-            menuItem.quantity = quantity
-            cartItems.add(menuItem)
-        }
-
-        saveCart(cartItems)
-    }
-
-    fun getCart(): MutableList<MenuItem> {
-        val json = sharedPreferences.getString("cartItems", "")
-        val type = object : TypeToken<MutableList<MenuItem>>() {}.type
-        return Gson().fromJson(json, type) ?: mutableListOf()
-    }
-
-    fun saveCart(cartItems: MutableList<MenuItem>) {
-        val json = Gson().toJson(cartItems)
-        editor.putString("cartItems", json)
-        editor.apply()
-    }
+//    fun addToCart(menuItem: MenuItem, quantity: Int) {
+//        val cartItems = getCart()
+//        val existingItem = cartItems.find { it.id == menuItem.id }
+//
+//        if (existingItem != null) {
+//            existingItem.quantity += quantity
+//        } else {
+//            menuItem.quantity = quantity
+//            cartItems.add(menuItem)
+//        }
+//
+//        saveCart(cartItems)
+//    }
+//
+//    fun getCart(): MutableList<MenuItem> {
+//        val json = sharedPreferences.getString("cartItems", "")
+//        val type = object : TypeToken<MutableList<MenuItem>>() {}.type
+//        return Gson().fromJson(json, type) ?: mutableListOf()
+//    }
+//
+//    fun saveCart(cartItems: MutableList<MenuItem>) {
+//        val json = Gson().toJson(cartItems)
+//        editor.putString("cartItems", json)
+//        editor.apply()
+//    }
 
 
 }

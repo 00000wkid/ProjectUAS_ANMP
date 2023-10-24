@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class MenuItem(val id:Int, val name: String, val price: Double, val imageUrl: String, val description: String,
-                    var quantity:Int=0)
+                    var quantity: Int = 0)
     : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt()?:0,

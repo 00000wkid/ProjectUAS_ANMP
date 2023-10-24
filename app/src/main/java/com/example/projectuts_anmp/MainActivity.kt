@@ -2,6 +2,7 @@ package com.example.projectuts_anmp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -40,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val cartViewModel: CartViewModel by viewModels()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
@@ -49,5 +52,4 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
     }
 
-    // Hapus metode replaceFragment karena Anda tidak akan menggunakannya lagi.
 }

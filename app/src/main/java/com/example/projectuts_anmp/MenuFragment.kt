@@ -39,28 +39,28 @@ class MenuFragment : Fragment() {
         binding = FragmentMenuBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        // Inisialisasi ViewModel
+        //  ViewModel
         appetizerMenuViewModel = ViewModelProvider(this).get(AppetizerMenuViewModel::class.java)
         riceNoodlesMenuViewModel = ViewModelProvider(this).get(RiceNoodlesMenuViewModel::class.java)
 
-        // Inisialisasi RecyclerView untuk "Appetizers"
+        //  RecyclerView untuk "Appetizers"
         val appetizerRecyclerView = binding.appetizerRecyclerView
         val appetizerMenuAdapter = MenuAdapter()
         appetizerRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         appetizerRecyclerView.adapter = appetizerMenuAdapter
 
-        // Observe LiveData dari ViewModel untuk "Appetizers"
+        // Observe LiveData ViewModel "Appetizers"
         appetizerMenuViewModel.appetizerMenu.observe(viewLifecycleOwner) { menuItems ->
             appetizerMenuAdapter.submitList(menuItems)
         }
 
-        // Inisialisasi RecyclerView untuk "Rice and Noodles"
+        //  RecyclerView "Rice and Noodles"
         val riceNoodlesRecyclerView = binding.riceNoodlesRecyclerView
         val riceNoodlesMenuAdapter = MenuAdapter()
         riceNoodlesRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         riceNoodlesRecyclerView.adapter = riceNoodlesMenuAdapter
 
-        // Observe LiveData dari ViewModel untuk "Rice and Noodles"
+        // Observe LiveData  ViewModel  "Rice and Noodles"
         riceNoodlesMenuViewModel.riceNoodlesMenu.observe(viewLifecycleOwner) { menuItems ->
             riceNoodlesMenuAdapter.submitList(menuItems)
         }
@@ -81,28 +81,3 @@ class MenuFragment : Fragment() {
     }
 }
 
-//class AppetizerMenuViewModel(application: Application) : AndroidViewModel(application) {
-//    val appetizerMenu: LiveData<List<MenuItem>>//fix mungkin
-//
-//    init {
-//        appetizerMenu = MutableLiveData() // Gunakan MutableLiveData yang benar
-//        val inputStream = application.resources.openRawResource(R.raw.menu_data)
-//        val json = InputStreamReader(inputStream).readText()
-//        val gson = Gson()
-//        val menuData = gson.fromJson(json, MenuData::class.java)
-//        appetizerMenu.postValue(menuData.appetizers)
-//    }
-//}
-//
-//class RiceNoodlesMenuViewModel(application: Application) : AndroidViewModel(application) {
-//    val riceNoodlesMenu: LiveData<List<MenuItem>>
-//
-//    init {
-//        riceNoodlesMenu = MutableLiveData()
-//        val inputStream = application.resources.openRawResource(R.raw.menu_data)
-//        val json = InputStreamReader(inputStream).readText()
-//        val gson = Gson()
-//        val menuData = gson.fromJson(json, MenuData::class.java)
-//        riceNoodlesMenu.postValue(menuData.riceAndNoodles)
-//    }
-//}

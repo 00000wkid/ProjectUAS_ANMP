@@ -58,5 +58,8 @@
     <argument
         android:name="menuItem"
         app:argType="com.example.projectuts_anmp.MenuItem" />
+        <action
+            android:id="@+id/action_menuDetailFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
 </navigation>
