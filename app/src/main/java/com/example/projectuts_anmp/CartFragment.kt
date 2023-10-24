@@ -35,12 +35,12 @@ class CartFragment : Fragment() {
         // Inisialisasi RecyclerView
         val cartRecyclerView = binding.cartRecyclerView
 
-        cartAdapter = CartAdapter(cartViewModel.cartItems.value.orEmpty())
+        cartAdapter = CartAdapter(requireContext(), cartViewModel.getCartItems().value.orEmpty())
         cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         cartRecyclerView.adapter = cartAdapter
 
         // Amati LiveData dari ViewModel
-        cartViewModel.cartItems.observe(viewLifecycleOwner) { items ->
+        cartViewModel.getCartItems().observe(viewLifecycleOwner) { items ->
             // Perubahan pada LiveData akan secara otomatis memperbarui RecyclerView
         }
 

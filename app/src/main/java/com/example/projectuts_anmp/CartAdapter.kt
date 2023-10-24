@@ -7,13 +7,8 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectuts_anmp.MenuItem
-import com.example.projectuts_anmp.R
-import kotlinx.coroutines.flow.internal.NoOpContinuation.context
-import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
-class CartAdapter(private val items: MutableList<MenuItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
-
+class CartAdapter(private val context: Context, private val items: MutableList<MenuItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val itemName: TextView = itemView.findViewById(R.id.cartItemNameTextView)
         val itemPrice: TextView = itemView.findViewById(R.id.cartItemPriceTextView)
@@ -22,7 +17,7 @@ class CartAdapter(private val items: MutableList<MenuItem>) : RecyclerView.Adapt
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cart_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.cart_item, parent, false)
         return CartViewHolder(view)
     }
 
@@ -33,7 +28,9 @@ class CartAdapter(private val items: MutableList<MenuItem>) : RecyclerView.Adapt
         holder.itemName.text = item.name
         holder.itemPrice.text = "Harga: ${item.price}"
         holder.itemQuantity.text = "Jumlah: ${item.quantity}"
-
+        holder.itemView.setOnClickListener {
+            onItemClickListener?.invoke(position)
+        }
         holder.deleteCartItemButton.setOnClickListener {
             showDeleteConfirmationDialog(holder.adapterPosition)
         }
@@ -47,6 +44,10 @@ class CartAdapter(private val items: MutableList<MenuItem>) : RecyclerView.Adapt
         // Implementasi untuk menghapus item dari list
         items.removeAt(position)
         notifyItemRemoved(position)
+    }
+    private var onItemClickListener: ((Int) -> Unit)? = null
+    fun setOnItemClickListener(listener: (Int) -> Unit) {
+        onItemClickListener = listener
     }
 
     private fun showDeleteConfirmationDialog(position: Int) {

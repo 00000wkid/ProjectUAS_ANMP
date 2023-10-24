@@ -46,10 +46,11 @@ class SessionManager(context: Context) {
         return Gson().fromJson(json, type) ?: mutableListOf()
     }
 
-    private fun saveCart(cartItems: MutableList<MenuItem>) {
+    fun saveCart(cartItems: MutableList<MenuItem>) {
         val json = Gson().toJson(cartItems)
         editor.putString("cartItems", json)
         editor.apply()
     }
+
 
 }
