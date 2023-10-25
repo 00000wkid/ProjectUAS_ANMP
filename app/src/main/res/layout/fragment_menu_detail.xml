@@ -12,8 +12,8 @@
 
         <ImageView
             android:id="@+id/itemImageView"
-            android:layout_width="409dp"
-            android:layout_height="0dp"
+            android:layout_width="421dp"
+            android:layout_height="162dp"
             android:layout_marginBottom="213dp"
             android:src="@drawable/logo"
 
@@ -41,8 +41,8 @@
             android:id="@+id/itemPriceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginBottom="432dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="56dp"
             android:text="Harga"
             android:textAppearance="?android:attr/textAppearanceMedium"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -63,24 +63,23 @@
             android:id="@+id/inputNumberPesanan"
             android:layout_width="367dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="374dp"
+            android:layout_marginBottom="104dp"
             android:ems="10"
+            android:hint="Masukkan Jumlah Pesanan"
             android:inputType="number"
+            android:text="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemImageView"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/btnTambahCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="312dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="44dp"
             android:text="Tambah"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/inputNumberPesanan"
-            app:layout_constraintTop_toBottomOf="@+id/itemImageView" />
+            app:layout_constraintEnd_toEndOf="@+id/inputNumberPesanan" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

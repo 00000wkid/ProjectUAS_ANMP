@@ -40,11 +40,12 @@ class MenuDetailFragment : Fragment() {
         Picasso.get().load(menuItem.imageUrl).into(binding.itemImageView)
 
 
-        val inputNumberPesanan = view.findViewById<EditText>(R.id.inputNumberPesanan)
+
         val addToCartButton = view.findViewById<Button>(R.id.btnTambahCart)
-        val numberPesananEditText = view.findViewById<EditText>(R.id.inputNumberPesanan)
+
 
         addToCartButton.setOnClickListener {
+            val numberPesananEditText = view.findViewById<EditText>(R.id.inputNumberPesanan)
             val quantity = numberPesananEditText.text.toString().toInt()
 
             if (quantity > 0) {

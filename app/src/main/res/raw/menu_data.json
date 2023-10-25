@@ -9,55 +9,55 @@
     {
       "name": "Sushi",
       "price": 6.99,
-      "imageUrl": "https://th.bing.com/th/id/OIP.VzTMToMYzFc8v-9CCfqJQwHaE9?pid=ImgDet&rs=1",
+      "imageUrl": "https://api-lotte.hollacode.com/api/static/inspirasi/1668577941434-mengenal-10-jenis-sushi-yang-populer-dan-sering-dikonsumsi.jpg",
       "description": "Fresh and delectable sushi rolls featuring a variety of fish, rice, and seaweed, accompanied by soy sauce and wasabi."
     },
     {
       "name": "Chicken Satay",
       "price": 8.99,
-      "imageUrl": "https://th.bing.com/th/id/OIP.5Z3Z3Z3Z3Z3Z3Z3Z3Z3Z3gHaE8?pid=ImgDet&rs=1",
+      "imageUrl": "https://rasamalaysia.com/wp-content/uploads/2019/04/chicken-satay-thumb.jpg",
       "description": "Tender grilled chicken skewers marinated in a flavorful peanut sauce, served with a side of cucumber salad."
     },
     {
       "name": "Mozzarella Sticks",
       "price": 7.99,
-      "imageUrl": "https://i.imgur.com/mozzarella-sticks.jpg",
+      "imageUrl": "https://asset.kompas.com/crops/R_pcfBOImsfo2f9FHeZwG2_Th0c=/0x0:5616x3744/750x500/data/photo/2021/03/31/60642cefa870b.jpg",
       "description": "Golden, crunchy mozzarella sticks with a gooey cheese center, served with marinara sauce."
     },
     {
       "name": "Bruschetta",
       "price": 6.49,
-      "imageUrl": "https://i.imgur.com/bruschetta.jpg",
+      "imageUrl": "https://www.allrecipes.com/thmb/QSsjryxShEx1L6o0HLer1Nn4jwA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/54165-balsamic-bruschetta-DDMFS-4x3-e2b55b5ca39b4c1783e524a2461634ea.jpg",
       "description": "Classic bruschetta featuring toasted bread topped with diced tomatoes, fresh basil, garlic, and olive oil."
     },
     {
       "name": "Onion Rings",
       "price": 5.79,
-      "imageUrl": "https://i.imgur.com/onion-rings.jpg",
+      "imageUrl": "https://www.sasa.co.id/medias/page_medias/resep_onion_ring.jpg",
       "description": "Crispy onion rings with a seasoned batter, perfect for dipping in your favorite sauce."
     },
     {
       "name": "Garlic Bread",
       "price": 4.99,
-      "imageUrl": "https://i.imgur.com/garlic-bread.jpg",
+      "imageUrl": "https://www.budgetbytes.com/wp-content/uploads/2023/08/Garlic-Bread-scattered.jpg",
       "description": "Warm and buttery garlic bread slices, perfect for sharing as an appetizer or side dish."
     },
     {
       "name": "Mini Tacos",
       "price": 8.49,
-      "imageUrl": "https://i.imgur.com/mini-tacos.jpg",
+      "imageUrl": "https://mealprepmanual.com/wp-content/uploads/2023/03/Chili-Beef-and-Cheese-Mini-Tacos.jpg",
       "description": "Delightful mini tacos with your choice of fillings, served with salsa and guacamole."
     },
     {
       "name": "Potato Skins",
       "price": 7.29,
-      "imageUrl": "https://i.imgur.com/potato-skins.jpg",
+      "imageUrl": "https://www.smalltownwoman.com/wp-content/uploads/2020/08/Potato-Skins-DSC_1782-II-Recipe-Card.jpg",
       "description": "Crispy potato skins loaded with cheese, bacon, and sour cream, a perfect party snack."
     },
     {
       "name": "Shrimp Cocktail",
       "price": 9.99,
-      "imageUrl": "https://i.imgur.com/shrimp-cocktail.jpg",
+      "imageUrl": "https://whiteonricecouple.com/recipe/images/shrimp-cocktail-550-1-1.jpg",
       "description": "Chilled shrimp served with a tangy cocktail sauce and lemon wedges, a refreshing starter."
     }
   ],
@@ -65,61 +65,61 @@
     {
       "name": "Fried Rice",
       "price": 7.99,
-      "imageUrl": "https://i.imgur.com/fried-rice.jpg",
+      "imageUrl": "https://cdn1-production-images-kly.akamaized.net/LDRjBxjUH3gyrzEAUFrCi_XisTs=/0x148:1920x1230/800x450/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3093328/original/069244600_1585909700-fried-2509089_1920.jpg",
       "description": "Flavorful fried rice with a mix of vegetables, eggs, and your choice of protein, seasoned to perfection."
     },
     {
       "name": "Noodles",
-      "price": 8.99,
-      "imageUrl": "https://i.imgur.com/noodles.jpg",
-      "description": "Savory noodles stir-fried with an assortment of vegetables and your choice of meat or tofu."
+      "price": 9999.99,
+      "imageUrl": "https://asset-2.tstatic.net/tribunnews/foto/bank/images/2873592984jpg-20211006112005.jpg",
+      "description": "Our extraordinary Indomie begins its epic journey deep within the heart of a mystical rainforest, where it's artfully prepared amidst the fiery breath of an active volcano. Once it's attained the perfect flavor, it's not just any ordinary transport that delivers this culinary masterpiece to your plate.\n\nThis savory wonder embarks on a daring adventure, riding shotgun with a convoy of battle-hardened tanks, led by none other than the president of the flavor federation. High above, a fleet of vigilant fighter jets keeps watch, ensuring the safe passage of our precious Indomie cargo.\n\nAs the tanks rumble through treacherous terrain, the president, donned in a chef's hat, personally oversees the final touches of this culinary masterpiece. The Indomie, wok-tossed with a riot of vegetables and your favorite protein warrior, emerges as a symbol of flavor diplomacy and courage.\n\nIt's a culinary experience that not only tantalizes your taste buds but also elevates your dining adventure to a whole new level of excitement! \uD83D\uDE81\uD83C\uDF5C\uD83D\uDEE1️\uD83C\uDDFA\uD83C\uDDF8\uD83D\uDD25 #FlavorQuest."
     },
     {
       "name": "Pad Thai",
       "price": 9.99,
-      "imageUrl": "https://i.imgur.com/pad-thai.jpg",
+      "imageUrl": "https://www.chilipeppermadness.com/wp-content/uploads/2022/03/Pad-Thai-SQ.jpg",
       "description": "A popular Thai dish featuring stir-fried rice noodles with shrimp, tofu, bean sprouts, and peanuts in a tamarind sauce."
     },
     {
       "name": "Beef Chow Mein",
       "price": 10.99,
-      "imageUrl": "https://i.imgur.com/beef-chow-mein.jpg",
+      "imageUrl": "https://www.thebewitchinkitchen.com/wp-content/uploads/2023/03/beef-chow-mein-scaled.jpg",
       "description": "Tender beef and vegetables stir-fried with noodles in a flavorful sauce, a Chinese takeout favorite."
     },
     {
       "name": "Ramen",
       "price": 9.49,
-      "imageUrl": "https://i.imgur.com/ramen.jpg",
+      "imageUrl": "https://www.budgetbytes.com/wp-content/uploads/2015/12/6-Ways-to-Upgrade-Instant-Ramen-eat-2.jpg",
       "description": "Japanese ramen with a rich broth, noodles, and various toppings like sliced pork, green onions, and seaweed."
     },
     {
       "name": "Chicken Alfredo",
       "price": 11.49,
-      "imageUrl": "https://i.imgur.com/chicken-alfredo.jpg",
+      "imageUrl": "https://images.themodernproper.com/billowy-turkey/production/posts/ChickenFettuccineAlfredo_11.jpg?w=960&h=960&q=82&fm=jpg&fit=crop&dm=1675190172&s=89dafc9de3618b7673be90fa09af4044",
       "description": "Creamy fettuccine Alfredo with tender pieces of grilled chicken and grated Parmesan cheese."
     },
     {
       "name": "Spaghetti Carbonara",
       "price": 10.99,
-      "imageUrl": "https://i.imgur.com/spaghetti-carbonara.jpg",
+      "imageUrl": "https://i.ytimg.com/vi/berfOMS87to/maxresdefault.jpg",
       "description": "Italian spaghetti with a creamy egg and cheese sauce, pancetta, and black pepper."
     },
     {
       "name": "Seafood Linguine",
       "price": 12.99,
-      "imageUrl": "https://i.imgur.com/seafood-linguine.jpg",
+      "imageUrl": "https://realfood.tesco.com/media/images/RFO-1400x919-SeafoodLinguine-d1ae9818-c4bf-4066-8adb-acfd6c0ed088-0-1400x919.jpg",
       "description": "Linguine pasta with a medley of seafood, garlic, white wine, and a touch of red pepper flakes."
     },
     {
       "name": "Veggie Stir Fry",
       "price": 8.79,
-      "imageUrl": "https://i.imgur.com/veggie-stir-fry.jpg",
+      "imageUrl": "https://www.budgetbytes.com/wp-content/uploads/2022/03/Easy-Vegetable-Stir-Fry-V1.jpg",
       "description": "Colorful stir-fried vegetables in a flavorful sauce, a healthy and delicious choice."
     },
     {
       "name": "Mushroom Risotto",
       "price": 10.49,
-      "imageUrl": "https://i.imgur.com/mushroom-risotto.jpg",
+      "imageUrl": "https://www.eatingwell.com/thmb/N_0xtwSPPGe7L1YA7O8Uhxm9LfA=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MushroomRisotto-Beauty-2825-b89fc407ca374feb997e10db2854a2a7.jpg",
       "description": "Creamy Italian risotto infused with the earthy flavors of mushrooms and Parmesan cheese."
     }
   ]

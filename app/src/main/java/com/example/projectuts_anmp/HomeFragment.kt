@@ -12,7 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.NavHostFragment
 
 class HomeFragment : Fragment() {
-
+    // ...
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

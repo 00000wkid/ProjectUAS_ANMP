@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class CartAdapter(private val context: Context, private var items: List<CartItem>) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val itemName: TextView = itemView.findViewById(R.id.cartItemNameTextView)
+        val itemName: TextView = itemView.findViewById(R.id.tablenumber)
         val itemPrice: TextView = itemView.findViewById(R.id.cartItemPriceTextView)
-        val itemQuantity: TextView = itemView.findViewById(R.id.cartItemQuantityTextView)
+        val itemQuantity: TextView = itemView.findViewById(R.id.txtTableNumber)
         val deleteCartItemButton: Button = itemView.findViewById(R.id.deleteCartItemButton)
     }
 

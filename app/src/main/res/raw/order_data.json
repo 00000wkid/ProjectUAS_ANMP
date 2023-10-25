@@ -1,0 +1,22 @@
+{
+  "orders": [
+    {
+      "tableNumber": 12,
+      "price": 25.99,
+      "duration": "30 minutes",
+      "description": "Special Burger"
+    },
+    {
+      "tableNumber": 8,
+      "price": 18.49,
+      "duration": "20 minutes",
+      "description": "Chicken Alfredo"
+    },
+    {
+      "tableNumber": 16,
+      "price": 12.99,
+      "duration": "25 minutes",
+      "description": "Vegetable Stir-Fry"
+    }
+  ]
+}

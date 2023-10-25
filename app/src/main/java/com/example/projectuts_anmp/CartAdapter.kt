@@ -8,15 +8,14 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 
 class CartAdapter(private val context: Context, private var items: List<CartItem>, private val cartViewModel: CartViewModel) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val itemName: TextView = itemView.findViewById(R.id.cartItemNameTextView)
+        val itemName: TextView = itemView.findViewById(R.id.tablenumber)
         val itemPrice: TextView = itemView.findViewById(R.id.cartItemPriceTextView)
-        val itemQuantity: TextView = itemView.findViewById(R.id.cartItemQuantityTextView)
+        val itemQuantity: TextView = itemView.findViewById(R.id.txtTableNumber)
         val deleteCartItemButton: Button = itemView.findViewById(R.id.deleteCartItemButton)
-        val image: TextView = itemView.findViewById(R.id.cartItemImageView)
+//        val image: TextView = itemView.findViewById(R.id.cartItemImageView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {

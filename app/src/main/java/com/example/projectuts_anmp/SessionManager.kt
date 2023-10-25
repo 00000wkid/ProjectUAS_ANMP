@@ -17,6 +17,36 @@ class SessionManager(context: Context) {
         editor.putInt("tableNumber", tableNumber)
         editor.apply()
     }
+    fun saveUsername(username: String) {
+        val editor = sharedPref.edit()
+        editor.putString("username", username)
+        editor.apply()
+    }
+    fun saveToken(token: String) {
+        val editor = sharedPref.edit()
+        editor.putString("token", token)
+        editor.apply()
+    }
+    fun getToken(): String {
+        return sharedPref.getString("token", "") ?: ""
+    }
+    fun deleteToken() {
+        val editor = sharedPref.edit()
+        editor.remove("token")
+        editor.apply()
+    }
+    fun savePassword(password: String) {
+        val editor = sharedPref.edit()
+        editor.putString("password", password)
+        editor.apply()
+    }
+    fun getPassword(): String {
+        return sharedPref.getString("password", "") ?: ""
+    }
+
+    fun getUsername(): String {
+        return sharedPref.getString("username", "") ?: ""
+    }
 
     fun getTableNumber(): Int {
         return sharedPref.getInt("tableNumber", 0) // 0 adalah nilai default jika data tidak tersedia

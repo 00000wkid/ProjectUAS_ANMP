@@ -62,4 +62,9 @@
             android:id="@+id/action_menuDetailFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/drawerFragment"
+        android:name="com.example.projectuts_anmp.DrawerFragment"
+        android:label="fragment_drawer"
+        tools:layout="@layout/fragment_drawer" />
 </navigation>
