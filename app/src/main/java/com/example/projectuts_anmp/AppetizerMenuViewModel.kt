@@ -15,5 +15,6 @@ class AppetizerMenuViewModel(application: Application) : AndroidViewModel(applic
         val gson = Gson()
         val menuData = gson.fromJson(json, MenuData::class.java)
         appetizerMenu.postValue(menuData.appetizers)
+
     }
 }

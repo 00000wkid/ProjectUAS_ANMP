@@ -52,6 +52,16 @@
             app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cartRecyclerView" />
+
+        <TextView
+            android:id="@+id/priceBeforeTax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="9dp"
+            android:text="Price Before Tax :"
+            app:layout_constraintBottom_toBottomOf="@+id/cartRecyclerView"
+            app:layout_constraintStart_toStartOf="@+id/taxTextView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Tombol Selesaikan Pembelian -->

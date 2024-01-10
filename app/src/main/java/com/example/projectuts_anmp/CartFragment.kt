@@ -33,9 +33,9 @@ class CartFragment : Fragment() {
             requireContext(),
             emptyList(),cartViewModel
         )
-        //get total price
         val totalPriceTextView = binding.totalPriceTextView
         val taxTextView = binding.taxTextView
+        val pricebeforetax=binding.priceBeforeTax
             cartRecyclerView.adapter = cartAdapter
         Log.d("CartFragment", "Jumlah item dalam cartFragment: ")
         cartViewModel.getCartItems().observe(viewLifecycleOwner) { items ->
@@ -43,12 +43,16 @@ class CartFragment : Fragment() {
             cartAdapter.setItems(items)
             cartAdapter.notifyDataSetChanged()
             val totalHarga = calculateTotalPrice(items)
+
             val tax = totalHarga * 0.1
             val decimalFormat = DecimalFormat("#,##0.00")
             val formattedTax = decimalFormat.format(tax)
+            val totall=totalHarga+tax
             taxTextView.text = "Tax(10%): $formattedTax"
+            pricebeforetax.text = "Price Before Tax: $totalHarga"
+            totalPriceTextView.text = "Total Price: $totall"
 
-            totalPriceTextView.text = "Total Price: $totalHarga"
+
         }
         //checkoutbutton clicked toast (berhasil)
         val checkoutButton = binding.checkoutButton

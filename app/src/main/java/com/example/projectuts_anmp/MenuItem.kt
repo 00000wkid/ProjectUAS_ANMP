@@ -9,7 +9,7 @@ data class MenuItem(val id:Int, val name: String, val price: Double, val imageUr
     constructor(parcel: Parcel) : this(
         parcel.readInt()?:0,
         parcel.readString() ?: "",
-        parcel.readDouble(),
+        parcel.readDouble()?:0.0,
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readInt()?:0

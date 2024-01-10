@@ -1,36 +1,65 @@
 package com.example.projectuts_anmp
 
-import android.app.Application
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.projectuts_anmp.MenuAdapter
-import com.example.projectuts_anmp.MenuData
-import com.example.projectuts_anmp.MenuItem
-import com.google.gson.Gson
 import com.example.projectuts_anmp.databinding.FragmentMenuBinding
-import java.io.InputStreamReader
-import com.example.projectuts_anmp.R
 
 class MenuFragment : Fragment() {
     private lateinit var binding: FragmentMenuBinding
     private lateinit var appetizerMenuViewModel: AppetizerMenuViewModel
     private lateinit var riceNoodlesMenuViewModel: RiceNoodlesMenuViewModel
 
+    private lateinit var menuDatabase: MenuDatabase
+    private lateinit var menuDao: MenuDao
+
+    @SuppressLint("Range")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        //  Database
+        val dbHelper= DBHelper(this.requireContext(),null)
+        val cursor = dbHelper.getAppetizer()
+        val count = cursor?.count
+        Log.d("dfjkfff", "count: $count")
+        //insert to list
+        val menuList: MutableList<MenuItem> = mutableListOf()
+
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    val id = cursor.getInt(cursor.getColumnIndex(DBHelper.ID_COL))
+                    val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COl))
+
+                    val price = cursor.getDouble(cursor.getColumnIndex(DBHelper.PRICE_COL))
+                    val desc = cursor.getString(cursor.getColumnIndex(DBHelper.DESC_COL))
+                    val image = cursor.getString(cursor.getColumnIndex(DBHelper.IMAGE_COL))
+
+                    // Create a MenuItem instance and add it to the list
+                    val menuItem = MenuItem(id, name, price,image,desc)
+                    menuList.add(menuItem)
+                } while (cursor.moveToNext())
+            }
+            cursor.close()
+        }
+
+        Log.d("dfjkdatabase", "isi: $menuList")
+
+
+
+
+
+
+
+
         val sessionManager = SessionManager(requireContext())
         val tableNumber = sessionManager.getTableNumber()
 
@@ -79,5 +108,7 @@ class MenuFragment : Fragment() {
 
         return view
     }
+
+
 }
 

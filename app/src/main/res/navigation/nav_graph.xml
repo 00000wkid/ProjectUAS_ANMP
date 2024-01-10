@@ -67,4 +67,9 @@
         android:name="com.example.projectuts_anmp.DrawerFragment"
         android:label="fragment_drawer"
         tools:layout="@layout/fragment_drawer" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.projectuts_anmp.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
 </navigation>
