@@ -17,8 +17,7 @@ class MenuFragment : Fragment() {
     private lateinit var appetizerMenuViewModel: AppetizerMenuViewModel
     private lateinit var riceNoodlesMenuViewModel: RiceNoodlesMenuViewModel
 
-    private lateinit var menuDatabase: MenuDatabase
-    private lateinit var menuDao: MenuDao
+
 
     @SuppressLint("Range")
     override fun onCreateView(
@@ -31,27 +30,27 @@ class MenuFragment : Fragment() {
         val count = cursor?.count
         Log.d("dfjkfff", "count: $count")
         //insert to list
-        val menuList: MutableList<MenuItem> = mutableListOf()
+//        val menuList: MutableList<MenuItem> = mutableListOf()
 
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                do {
-                    val id = cursor.getInt(cursor.getColumnIndex(DBHelper.ID_COL))
-                    val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COl))
+//        if (cursor != null) {
+//            if (cursor.moveToFirst()) {
+//                do {
+//                    val id = cursor.getInt(cursor.getColumnIndex(DBHelper.ID_COL))
+//                    val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COl))
+//
+//                    val price = cursor.getDouble(cursor.getColumnIndex(DBHelper.PRICE_COL))
+//                    val desc = cursor.getString(cursor.getColumnIndex(DBHelper.DESC_COL))
+//                    val image = cursor.getString(cursor.getColumnIndex(DBHelper.IMAGE_COL))
+//
+//                    // Create a MenuItem instance and add it to the list
+//                    val menuItem = MenuItem(id, name, price,image,desc)
+//                    menuList.add(menuItem)
+//                } while (cursor.moveToNext())
+//            }
+//            cursor.close()
+//        }
 
-                    val price = cursor.getDouble(cursor.getColumnIndex(DBHelper.PRICE_COL))
-                    val desc = cursor.getString(cursor.getColumnIndex(DBHelper.DESC_COL))
-                    val image = cursor.getString(cursor.getColumnIndex(DBHelper.IMAGE_COL))
-
-                    // Create a MenuItem instance and add it to the list
-                    val menuItem = MenuItem(id, name, price,image,desc)
-                    menuList.add(menuItem)
-                } while (cursor.moveToNext())
-            }
-            cursor.close()
-        }
-
-        Log.d("dfjkdatabase", "isi: $menuList")
+//        Log.d("dfjkdatabase", "isi: $menuList")
 
 
 

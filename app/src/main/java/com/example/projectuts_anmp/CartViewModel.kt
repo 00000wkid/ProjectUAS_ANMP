@@ -1,37 +1,51 @@
 package com.example.projectuts_anmp
 
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 
-class CartViewModel : ViewModel() {
+
+class CartViewModel(private val context: Context) : ViewModel() {
     private val cartItems: MutableLiveData<MutableList<CartItem>> = MutableLiveData(mutableListOf())
 
     fun addToCart(menuItem: MenuItem, quantity: Int) {
-        val currentCartItems = cartItems.value ?: mutableListOf()
-
-        val existingCartItem = currentCartItems.find { it.menuItem.name == menuItem.name }
-
-        if (existingCartItem != null) {
-            val updatedQuantity = existingCartItem.quantity + quantity
-            existingCartItem.quantity = updatedQuantity
-        } else {
-            val newCartItem = CartItem(menuItem, quantity)
-            currentCartItems.add(newCartItem)
-        }
+        val dbHelper = DBHelper(context, null)
+        dbHelper.addCart(menuItem.name,menuItem.description,menuItem.price,menuItem.qty,menuItem.category,menuItem.imageUrl)
+        Log.d("dfjkff", "isi: $menuItem")
         Log.d("CartViewModel", "Jumlah item dalam cartViewModel: ${cartItems.value?.size}")
 
-        cartItems.value = currentCartItems
     }
 
-    fun getCartItems(): LiveData<MutableList<CartItem>> {
-        Log.d("CartViewModel", "Jumlah item dalam CartViewModel: ${cartItems.value?.size ?: 0}")
+    fun getCartItems(): MutableList<CartItem> {
+        val dbHelper = DBHelper(context, null)
+        val cursor = dbHelper.getCart()
+        val menuList: MutableList<CartItem> = mutableListOf()
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    val id = cursor.getInt(cursor.getColumnIndex(DBHelper.ID_COL))
+                    val name = cursor.getString(cursor.getColumnIndex(DBHelper.NAME_COl))
+                    val price = cursor.getDouble(cursor.getColumnIndex(DBHelper.PRICE_COL))
+                    val desc = cursor.getString(cursor.getColumnIndex(DBHelper.DESC_COL))
+                    val image = cursor.getString(cursor.getColumnIndex(DBHelper.IMAGE_COL))
+                    val qty = cursor.getInt(cursor.getColumnIndex(DBHelper.QTY_COL))
+                    val category = cursor.getString(cursor.getColumnIndex(DBHelper.CATEGORY_COL))
 
-        return cartItems
+                    val menuItem = MenuItem(id, name, price, image, desc, qty, category)
+                    val cartItem = CartItem(menuItem, qty)
+                    menuList.add(cartItem)
+                } while (cursor.moveToNext())
+            }
+            cursor.close()
+        }
+        Log.d("CartViewModel", "Jumlah item dalam CartViewModel: ${menuList.size}")
 
+          return menuList
     }
+
     fun removeItemFromCart(position: Int) {
         val currentCartItems = cartItems.value?.toMutableList()
         if (currentCartItems != null && currentCartItems.size > position) {

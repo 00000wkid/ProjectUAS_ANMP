@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.projectuts_anmp.databinding.FragmentMenuDetailBinding
 import com.squareup.picasso.Picasso
 
+
 class MenuDetailFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,8 @@ class MenuDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val cartViewModel = ViewModelProvider(requireActivity()).get(CartViewModel::class.java)
+//        val cartViewModel = ViewModelProvider(requireActivity()).get(CartViewModel::class.java)
+        val cartViewModel = CartViewModel(requireContext())
 
         binding = FragmentMenuDetailBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -45,6 +47,7 @@ class MenuDetailFragment : Fragment() {
 
 
         addToCartButton.setOnClickListener {
+
             val numberPesananEditText = view.findViewById<EditText>(R.id.inputNumberPesanan)
             val quantity = numberPesananEditText.text.toString().toInt()
 

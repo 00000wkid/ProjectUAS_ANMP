@@ -25,7 +25,8 @@ class CartFragment : Fragment() {
 
         binding = FragmentCartBinding.inflate(inflater, container, false)
         val view = binding.root
-        val cartViewModel = ViewModelProvider(requireActivity()).get(CartViewModel::class.java)
+        //get cartViewModel
+        val cartViewModel = CartViewModel(requireContext())
         val cartRecyclerView = binding.cartRecyclerView
 
         cartRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -33,27 +34,22 @@ class CartFragment : Fragment() {
             requireContext(),
             emptyList(),cartViewModel
         )
+        //get total price
         val totalPriceTextView = binding.totalPriceTextView
         val taxTextView = binding.taxTextView
-        val pricebeforetax=binding.priceBeforeTax
-            cartRecyclerView.adapter = cartAdapter
-        Log.d("CartFragment", "Jumlah item dalam cartFragment: ")
-        cartViewModel.getCartItems().observe(viewLifecycleOwner) { items ->
-            Log.d("CartFragment", "Jumlah item dalam cartItems: ${items.size}")
-            cartAdapter.setItems(items)
-            cartAdapter.notifyDataSetChanged()
-            val totalHarga = calculateTotalPrice(items)
+        cartRecyclerView.adapter = cartAdapter
+        Log.d("CartFragment", "Jumlah item dalam cartFragment: ");
+        //get cart item
+        val cartItems = cartViewModel.getCartItems()
+        cartAdapter.setItems(cartItems)
+        cartAdapter.notifyDataSetChanged()
+        //get total price
+        val totalPrice = calculateTotalPrice(cartItems)
+        val tax = totalPrice * 0.1
+        val df = DecimalFormat("#.##")
+        totalPriceTextView.text = "Rp. ${df.format(totalPrice)}"
+        taxTextView.text = "Rp. ${df.format(tax)}"
 
-            val tax = totalHarga * 0.1
-            val decimalFormat = DecimalFormat("#,##0.00")
-            val formattedTax = decimalFormat.format(tax)
-            val totall=totalHarga+tax
-            taxTextView.text = "Tax(10%): $formattedTax"
-            pricebeforetax.text = "Price Before Tax: $totalHarga"
-            totalPriceTextView.text = "Total Price: $totall"
-
-
-        }
         //checkoutbutton clicked toast (berhasil)
         val checkoutButton = binding.checkoutButton
         checkoutButton.setOnClickListener {
