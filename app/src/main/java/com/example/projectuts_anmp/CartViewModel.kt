@@ -2,7 +2,6 @@ package com.example.projectuts_anmp
 
 import android.content.Context
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -13,7 +12,7 @@ class CartViewModel(private val context: Context) : ViewModel() {
 
     fun addToCart(menuItem: MenuItem, quantity: Int) {
         val dbHelper = DBHelper(context, null)
-        dbHelper.addCart(menuItem.name,menuItem.description,menuItem.price,menuItem.qty,menuItem.category,menuItem.imageUrl)
+        dbHelper.addCart(menuItem.name,menuItem.description,menuItem.price,quantity,menuItem.category,menuItem.imageUrl)
         Log.d("dfjkff", "isi: $menuItem")
         Log.d("CartViewModel", "Jumlah item dalam cartViewModel: ${cartItems.value?.size}")
 
@@ -46,12 +45,23 @@ class CartViewModel(private val context: Context) : ViewModel() {
           return menuList
     }
 
-    fun removeItemFromCart(position: Int) {
+    fun removeItemFromCart(position: Int, NAME: String) {
         val currentCartItems = cartItems.value?.toMutableList()
         if (currentCartItems != null && currentCartItems.size > position) {
             currentCartItems.removeAt(position)
 //            cartItems.value = currentCartItems
         }
+        Log.d("position", "position: $position")
+
+        //delete from database
+        val dbHelper = DBHelper(context, null)
+//        val cartItem = cartItems.value?.get(position)
+
+        dbHelper.deleteCart(NAME)
+
+        //delete from list
+
+
     }
 
 }

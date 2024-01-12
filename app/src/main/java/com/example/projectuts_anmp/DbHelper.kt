@@ -93,9 +93,11 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         return db.rawQuery("SELECT * FROM cart where name LIKE '%$name%'", null)
     }
     fun addCart(
-        name:String, desc: String, price: Double,
-        qtyy:Int,
-        category:String, image: String ) {
+        name: String, desc: String, price: Double,
+        qtyy: Int,
+        category: String, image: String
+    ) {
+        Log.d("dfjkfff", "addCart: $name $desc $price $qtyy $category $image")
         val db = this.readableDatabase
         val values = ContentValues()
         values.put(NAME_COl2, name)
@@ -104,23 +106,63 @@ class DBHelper(context: Context, factory: SQLiteDatabase.CursorFactory?) :
         values.put(QTY_COL2, qtyy)
         values.put(CATEGORY_COL2, category)
         values.put(IMAGE_COL2, image)
-        //check first if data exist
-        val cursor = db.rawQuery("SELECT * FROM "+ TABLE_NAME2+" WHERE name='$name'", null)
-        if (cursor.count > 0) {
-            cursor.moveToFirst()
-            val qty = cursor.getInt(cursor.getColumnIndex(DBHelper.QTY_COL2))
+
+        // Use query method to check if data exist
+        val selection = "$NAME_COl2 = ?"
+        val selectionArgs = arrayOf(name)
+        val cursor = db.query(TABLE_NAME2, null, selection, selectionArgs, null, null, null)
+
+        if (cursor.moveToFirst()) {
+            // Data exists, update quantity
+            val qty = cursor.getInt(cursor.getColumnIndex(QTY_COL2))
+            Log.d("dfjkfff", "addCart: $qty $qtyy")
             values.put(QTY_COL2, qty + qtyy)
-            db.update(TABLE_NAME2, values, "name='$name'", null)
-        } else
-        {
+            db.update(TABLE_NAME2, values, selection, selectionArgs)
+        } else {
+            // Data doesn't exist, insert new record
             db.insert(TABLE_NAME2, null, values)
         }
+
+        cursor.close()
         db.close()
     }
+
+//    fun addCart(
+//        name:String, desc: String, price: Double,
+//        qtyy:Int,
+//        category:String, image: String ) {
+//        val db = this.readableDatabase
+//        val values = ContentValues()
+//        values.put(NAME_COl2, name)
+//        values.put(DESC_COL2, desc)
+//        values.put(PRICE_COL2, price)
+//        values.put(QTY_COL2, qtyy)
+//        values.put(CATEGORY_COL2, category)
+//        values.put(IMAGE_COL2, image)
+//        //check first if data exist
+//        val cursor = db.rawQuery("SELECT * FROM "+ TABLE_NAME2+" WHERE name='$name'", null)
+//        if (cursor.count > 0) {
+//            cursor.moveToFirst()
+//            val qty = cursor.getInt(cursor.getColumnIndex(DBHelper.QTY_COL2))
+//            values.put(QTY_COL2, qty + qtyy)
+//            db.update(TABLE_NAME2, values, "name='$name'", null)
+//        } else
+//        {
+//            db.insert(TABLE_NAME2, null, values)
+//        }
+//        db.close()
+//    }
 
     fun getCart(): Cursor? {
         val db = this.readableDatabase
         return db.rawQuery("SELECT * FROM cart", null)
+    }
+    fun deleteCart(Name:String) {
+        val db = this.writableDatabase
+        //delete from table where id
+        db.delete(TABLE_NAME2, "name='$Name'", null)
+
+        db.close()
     }
 
 

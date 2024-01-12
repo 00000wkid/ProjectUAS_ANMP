@@ -1,4 +1,5 @@
 package com.example.projectuts_anmp
+
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
+
 
 class CartAdapter(private val context: Context, private var items: List<CartItem>, private val cartViewModel: CartViewModel) : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     inner class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -38,7 +41,7 @@ class CartAdapter(private val context: Context, private var items: List<CartItem
             onItemClickListener?.invoke(position)
         }
         holder.deleteCartItemButton.setOnClickListener {
-            showDeleteConfirmationDialog(holder.adapterPosition)
+            showDeleteConfirmationDialog(holder.adapterPosition, cartItem.menuItem.name)
         }
     }
 
@@ -51,6 +54,12 @@ class CartAdapter(private val context: Context, private var items: List<CartItem
     fun setItems(items: List<CartItem>) {
         this.items = ArrayList(items)
     }
+    fun updateData(items: List<CartItem>) {
+        //clear item
+        this.items = ArrayList(items)
+        notifyDataSetChanged()
+
+    }
     fun removeItem(position: Int) {
 //        items.removeAt(position)
         notifyItemRemoved(position)
@@ -61,14 +70,15 @@ class CartAdapter(private val context: Context, private var items: List<CartItem
         onItemClickListener = listener
     }
 
-    private fun showDeleteConfirmationDialog(position: Int) {
+    private fun showDeleteConfirmationDialog(position: Int, Name: String) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Hapus Item")
         builder.setMessage("Apakah Anda yakin ingin menghapus item dari keranjang?")
+//        Log.d("CartAdapter", "Jumlah item dalam cartAdapter: ${id} ")
         builder.setPositiveButton("Ya") { _, _ ->
-
             removeItem(position)
-            cartViewModel.removeItemFromCart(position)
+            cartViewModel.removeItemFromCart(position,Name)
+            updateData(cartViewModel.getCartItems())
         }
         builder.setNegativeButton("Tidak") { dialog, _ ->
 
